@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EKS Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>EKS Quiz</h1>
+
+        <div class="question">
+            <h2>You successfully created a new Amazon EKS cluster using AWS CLI. As a next step, you would like to use kubectl CLI to manage your application deployment in this new cluster.</h2>
+            <h3>Which file or component do you need to update, in order to communicate with the EKS control plane using kubectl CLI?</h3>
+            <ul class="options">
+                <li class="correct">kubeconfig</li>
+                <li>KubeAPI</li>
+                <li>cloud-controller-manager</li>
+                <li>Kube-proxy</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are a DevOps engineer at a financial services company. Your team is responsible for managing the company's AWS EKS cluster, which hosts hundreds of critical microservices. You need to create a new node group for a microservice with high performance requirements and must be highly available.</h2>
+            <h3>Which type of AWS EKS node group should you use?</h3>
+            <ul class="options">
+                <li class="correct">Custom node group with on-demand instances</li>
+                <li>Custom node group with spot instances</li>
+                <li>AWS Fargate node group</li>
+                <li>Managed node group with spot instances</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your organization is migrating a monolithic application to microservices running on an Amazon EKS cluster. The EKS node groups are deployed in a private subnet of the VPC. One of the microservices, the payment gateway, must be accessible from both within the cluster for internal transactions and externally for direct API calls from third-party services. The service must also evenly distribute traffic to multiple pods.</h2>
+            <h3>Which type of Kubernetes Service should you implement for the payment gateway microservice in your Amazon EKS cluster to meet these requirements?</h3>
+            <ul class="options">
+                <li>Headless Service</li>
+                <li class="correct">LoadBalancer</li>
+                <li>ClusterIP</li>
+                <li>NodePort</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>As a software engineer at a startup, you are asked to containerize an application using Docker.</h2>
+            <h3>Which of the following correctly describes best practices for building container images?</h3>
+            <ul class="options">
+                <li>It's recommended to keep images lightweight by installing unnecessary packages and tools.</li>
+                <li>Tagging images with version numbers or commit IDs is not important since containers are immutable.</li>
+                <li>For faster builds. Use the latest stable release of the base image rather than pinning to a specific version.</li>
+                <li class="correct">Building multi-stage images that contain build tools and runtime dependencies in separate stages is recommended.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You have a call with a business stakeholder to discuss the benefits of a managed service like EKS.</h2>
+            <h3>What will be your elevator pitch to present the EKS business value? (Select TWO).</h3>
+            <ul class="options">
+                <li>EKS control plane is Multi-AZ and can use a serverless option for data plane</li>
+                <li>EKS leverages known clients like kubectl and open source tools like ArgoCD</li>
+                <li class="correct">Repurpose existing technical team(s) to higher priority projects and reduce the overhead of managing undifferentiated workloads.</li>
+                <li class="correct">EKS manages your control plane and is upstream Kubernetes compliant.</li>
+                <li>EKS lets you leverage your existing on-premises investment and expand into the cloud for scalability.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>A new startup company recently launched an E-commerce site hosted on Amazon EKS cluster that has multiple Microservices. Their CEO asked operations team to build a solution to capture application logs across the cluster, so that they can identify what microservice can be improved.</h2>
+            <h3>What action should the operations team take in order to capture application logs generated across the cluster?</h3>
+            <ul class="options">
+                <li>Turn on Kubernetes native solution to collect application logs and send them to a centralized logging destination like CloudWatch or Elasticsearch and build a dashboard.</li>
+                <li class="correct">Configure cluster-wide log collector agent like FluentBit to capture application logs and send them to a centralized logging destination like CloudWatch or Elasticsearch and build a dashboard.*</li>
+                <li>Setup AWS Distro for OpenTelemetry (ADOT) collector to capture application logs and store in Amazon Managed Service for Prometheus and visualize using Amazon Managed Grafana.</li>
+                <li>Setup CloudWatch Agent to capture application logs and store in Amazon Managed Service for Prometheus and visualize using Amazon Managed Grafana.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>A production application has been running on EKS and has been assigned to your operations team. After reviewing the recent security tickets for the application and inspecting the controls, you realize that there is NO audit trail for configuration changes to the EKS cluster. This makes it difficult for your team to manage the security for the cluster.</h2>
+            <h3>Which of the following is the most cost effective way to meet your requirements?</h3>
+            <ul class="options">
+                <li class="correct">Enable EKS control plane logging for Audit and Authenticator logs. Leverage GuardDuty for Audit Log monitoring for any suspicious activities. Leverage Cloudwatch Log insights to derive insights from the log groups.*</li>
+                <li>Enable VPC flow logs and integrate the flow logs with GuardDuty to understand the flow of traffic across different pods.</li>
+                <li>Access Cloudtrail logs through Cloudtrail insights to detect suspicious behavior.</li>
+                <li>Instrument application metrics through the SDK to publish logs for scenarios in which the IP address is outside of the allow list.</li>
+                <li>Deploy Prometheus agent to the EKS cluster as daemonset and retrieve the application metrics. Publish the metrics to a 3rd party observability solution.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You have developed a microservices based application that is being deployed to your Amazon EKS cluster. The application is deployed as multiple Kubernetes deployments and has various endpoints that need to be exposed outside of the cluster to allow for external users to make HTTP based API calls against. To reduce complexity for your end users, you would like to expose the different application endpoints on a single URL with different URL paths directing users to the proper endpoint.</h2>
+            <h3>Based on these requirements, what is the best way to accomplish exposing the application to your end users?</h3>
+            <ul class="options">
+                <li>Create service object of type LoadBalancer.</li>
+                <li>Create a service object of type NodePort.</li>
+                <li>Create a service object of type ClusterIP.</li>
+                <li class="correct">Create an ingress object using the AWS Load Balancer Controller.*</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are a consultant for a medium-sized software development company. The company is considering adopting containerization as part of its software deployment strategy. The management wants to ensure that the adoption of containers aligns with their business objectives.</h2>
+            <h3>Which of the following BEST describes the business value of adopting containers for software deployment?</h3>
+            <ul class="options">
+                <li class="correct">Containers simplify application deployment and scaling, leading to improved efficiency, faster development cycles, and reduced infrastructure costs.*</li>
+                <li>Containers are primarily suitable for large enterprises and do not offer any benefits for small to medium-sized businesses.</li>
+                <li>Containers are primarily used for running legacy software, making it easier to maintain outdated systems.</li>
+                <li>Containers provide a secure and isolated environment for software, which ensures 100% protection against all types of cyber threats.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are a DevOps engineer in a Travel Booking company that has recently deployed its critical application to the Amazon Elastic Kubernetes Service (EKS). During the holiday season, the application experienced a sudden drop in performance, causing disruption to the end users. Following the recent challenges, your manager has emphasized the need for preventive measures to avoid similar issues in the future.</h2>
+            <h3>Which of the following observability strategies would be the most effective in detecting, investigating, and mitigating the underlying problem in the EKS cluster using metrics?</h3>
+            <ul class="options">
+                <li>Increase EKS cluster size and nodes using EKS Metrics data when anomalies are detected.</li>
+                <li class="correct">Install the CloudWatch agent on your cluster to gather and display metrics from the control and data planes. Set alarms for anomalies and use filters and dashboards to spot unusual patterns.*</li>
+                <li>Use FluentBit to aggregate essential metrics and forward them to CloudWatch.</li>
+                <li>Analyze the control plane's metrics and evaluate its scaling configuration for improvements.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>The Development team on Company A regularly pushes new images directly to ECR for Deployment. With Company A's recent concerns for security, specifically with common vulnerabilities and exposures, the DevOps team is tasked to create a plan to scan these images as soon as they are pushed to ECR AND have reports on vulnerabilities and exposure findings available on SecurityHub for the Security team.</h2>
+            <h3>How can the Devops team address ALL the requirements of this task?</h3>
+            <ul class="options">
+                <li>Enable ECS, when a new image is pushed and automatically scanned, the reports will be available on SecurityHub.</li>
+                <li>Scan the image using Hadolint, when a new image is pushed and automatically scanned, the reports will be available on SecurityHub.</li>
+                <li class="correct">Enable Amazon Inspector, when a new image is pushed and automatically scanned, the reports will be available on SecurityHub.*</li>
+                <li>Scan the image using Hadolint, save the reports on a txt file, send to the Security team when requested.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You have been tasked with setting up a new Kubernetes-based application infrastructure in AWS using EKS. To ensure that the EKS control plane has the necessary permissions to manage AWS resources on your behalf, you need to create an IAM role and associate it with the EKS cluster.</h2>
+            <h3>Which of the following options can configure the IAM permissions for the EKS control plane?</h3>
+            <ul class="options">
+                <li>Obtain the most privileged IAM role, AdministratorAccess, and associate it with the EKS cluster, ensuring no permission issues whatsoever.</li>
+                <li class="correct">Create an IAM role with the policy AmazonEKSClusterPolicy and trust relationship for the EKS service, then specify this role during EKS cluster creation.*</li>
+                <li>Create an IAM user with necessary permissions and associate its access and secret keys with the EKS control plane.</li>
+                <li>Create an IAM role with the policy AmazonEKSWorkerNodePolicy and trust relationship for the EKS service, then specify this role during EKS cluster creation.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are responsible for managing a highly available and scalable containerized application on Amazon EKS for a retail company. The application is deployed across multiple Availability Zones for fault tolerance.</h2>
+            <h3>When setting up an Ingress controller for your containerized application on Amazon EKS, which of the following statements is true</h3>
+            <ul class="options">
+                <li>Ingress controllers are automatically provisioned by AWS EKS, and no additional configuration is required.</li>
+                <li class="correct">Ingress controllers are used to define routing rules for external traffic coming to your containerized application in EKS cluster.*</li>
+                <li>Ingress controllers are only necessary when deploying applications in a single Availability Zone.</li>
+                <li>An Ingress controller is primarily responsible for routing internal pod-to-pod traffic within your EKS cluster.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>As the Lead Engineer for a company that builds a financial management application, you want to move to a Continuous Operations model using GitOps.</h2>
+            <h3>What are some of the advantages of using GitOps and Continuous Operations? (SELECT 2)</h3>
+            <ul class="options">
+                <li>GitOps can identify tests that are written incorrectly during the continuous testing phase.</li>
+                <li>GitOps protects your API keys and passwords by securely storing them in version control.</li>
+                <li class="correct">Git serves as the single source of truth system's desired state.*</li>
+                <li class="correct">GitOps enables reproducible, automated deployments of your application and infrastructure.*</li>
+                <li>Using GitOps ensures agile development methodologies are being used.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You have been asked to implement network policies, By default, if no policies exist in a namespace, then all ingress and egress traffic is allowed to and from pods in that namespace.</h2>
+            <h3>What is the first network policy you will create to restrict all traffic to and from all pods in any namespace?</h3>
+            <ul class="options">
+                <li>Create a default deny policy for Egress</li>
+                <li class="correct">Create a default deny policy for both ingress and egress*</li>
+                <li>No need to create network deny policy because by default all traffic is denied</li>
+                <li>Create a default deny policy for all ingress traffic</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>A large retail enterprise has an e-commerce based application hosted on EKS. The app in its holistic form has a number of microservices, built by different teams and they leverage soft multi-tenancy using Kubernetes namespace to create logical separation between the tenants. The platform team is looking for a solution that can provide accurate cost monitoring, and enable them with deeper insights to track Kubernetes resource level costs by namespace, cluster, pod, or organizational concepts (e.g., by team or business unit or application). They also want internal teams to be able to access customized cost optimization recommendations based on their usage patterns.</h2>
+            <h3>You are working as a Principal Platform engineer, what solution will you recommend to enable visualization of the Amazon EKS cost breakdown, cost allocation, and chargeback to individual organizational units?</h3>
+            <ul class="options">
+                <li>eks-node-viewer</li>
+                <li>AWS Cost and Usage Reports (CUR)</li>
+                <li class="correct">Kubecost*</li>
+                <li>Amazon Managed Grafana</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your organization is concerned about unusual network traffic involving two pods in its EKS cluster. The DevOps team needs to create a Network Policy to block ingress and egress connections on Pods A and B only, both running on the same namespace. A deny all ingress and egress Network Policy is applied to the pod's namespace but, testing shows that ALL pods in the namespace have been blocked.</h2>
+            <h3>What should the Devops team do to fix the Network Policy and block only Pods A and B communication?</h3>
+            <ul class="options">
+                <li>Remove policyType Egress from the Network Policy, so that it blocks all ingress and egress traffic for Pods A and B.</li>
+                <li class="correct">Add labels to both Pods A and B, edit the Network Policy's field named podSelector to match the newly created labels.*</li>
+                <li>Restart Pods A and B for the Network Policy to take effect.</li>
+                <li>Remove policyType Ingress from the Network Policy, so that it blocks all ingress and egress traffic for Pods A and B.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are working on a microservice application as a developer. While testing in your local environment, you found that your application container needs at least 128 MiB memory to run on the Kubernetes cluster efficiently. You need to prepare this application to run on a Kubernetes cluster.</h2>
+            <h3>How will you ensure your application container will get sufficient memory when deployed in a Kubernetes cluster?</h3>
+            <ul class="options">
+                <li>Specify an environment variable named MEM_REQ with value "128Mi" in your container definition YAML.</li>
+                <li class="correct">Specify resource request under "spec.containers[].resources.requests.memory" with value "128Mi" in your container definition YAML.*</li>
+                <li>Configuring specific resource requirements for a Pod is not supported in Kubernetes.</li>
+                <li>Configure the kube-scheduler on the cluster.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>A platform engineer must configure network communication from an application front-end deployment to a backend deployment residing in a different namespace within a Kubernetes cluster. The number of pods in the backend deployment is designed to scale horizontally based on incoming traffic levels from the front end.</h2>
+            <h3>Which solution is the most optimal configuration while ensuring the communication remains within the Kubernetes cluster?</h3>
+            <ul class="options">
+                <li>In the front-end deployment, hard code the IP addresses of the backend pods within the application.</li>
+                <li>Create an external load balancer and manually register the IP addresses of the backend pods. Configure the front-end application to use the external load balancer DNS name.</li>
+                <li>In the front-end deployment, configure the application to use the DNS names of the backend pods.</li>
+                <li class="correct">Create a Kubernetes Service with the ClusterIP type for the backend deployment and configure the front-end application to use that Kubernetes service DNS name.*</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>An engineering team deployed new microservices in their EKS cluster and noticed that some application requests were failing briefly during the startup process. They believe this could be because pods were accepting traffic before fully initializing.</h2>
+            <h3>What can they do to mitigate this issue and prevent pods from receiving requests before they are ready?</h3>
+            <ul class="options">
+                <li>Enable Liveness Probe health check.</li>
+                <li>Enable Readiness Probe with default initialDelaySeconds.</li>
+                <li class="correct">Enable Readiness Probe with initialDelaySeconds as X seconds based on each application's startup time.</li>
+                <li>Enable Readiness Probe with initialDelaySeconds as 5 seconds for both applications.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are designing a deployment strategy for a microservice application in Amazon EKS. The application is stateless and serves RESTful HTTP requests. The team wants to automate rolling updates, rollbacks, and maintain the desired state of replicas.</h2>
+            <h3>Which of the following workload controllers is BEST suited for this scenario?</h3>
+            <ul class="options">
+                <li>Job</li>
+                <li>DaemonSet</li>
+                <li class="correct">Deployment</li>
+                <li>ReplicaSet</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>As a new developer on your team, you have been tasked with deploying an application to Kubernetes.</h2>
+            <h3>Which of the following BEST describes how kubectl can be used?</h3>
+            <ul class="options">
+                <li>Kubectl should be avoided in favor of third-party UIs and dashboards for managing Kubernetes.</li>
+                <li>Kubectl allows you to directly modify infrastructure resources like nodes and networking configurations within a cluster.</li>
+                <li class="correct">Kubectl is the command line tool that allows you to run commands against Kubernetes clusters, such as deploying applications, viewing status, and managing containerized workloads.</li>
+                <li>Kubectl enables you to create Kubernetes manifests locally without connecting to a cluster.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your organization needs to set up a continuous delivery pipeline. Its architecture includes containerized micro-services that need to be updated and rolled back quickly. They want to expose front-end services on the public Internet. The Application team requirements are listed below:</h2>
+            <ul>
+                <li>Services are deployed redundantly across multiple availability zones in US east region</li>
+                <li>Reserve a single front-end IP for their fleet of services</li>
+                <li>Deployment artifacts are immutable.</li>
+            </ul>
+            <h3>Which set of managed services should they use? (Select THREE)</h3>
+            <ul class="options">
+                <li>Services are deployed redundantly across multiple availability zones in US east region</li>
+                <li>Reserve a single front-end IP for their fleet of services</li>
+                <li>Deployment artifacts are immutable.</li>
+                <li>Amazon RDS (Relational Database Service)</li>
+                <li class="correct">Amazon EKS (Elastic Kubernetes Service)</li>
+                <li>Amazon CloudWatch</li>
+                <li class="correct">Amazon ECR Elastic Container Registry</li>
+                <li>Amazon S3</li>
+                <li class="correct">AWS ELB Elastic Load Balancers</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>What command option when used with kubectl will list all resources running in the "workshop" namespace?</h2>
+            <ul class="options">
+                <li>kubectl get pods</li>
+                <li>kubectl get all --all-namespaces</li>
+                <li>kubectl get all</li>
+                <li class="correct">kubectl get all -n workshop</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You have been tasked to containerize your application. The Dockerfile has been created, and you need to run the command that creates a new Docker image in your local environment.</h2>
+            <h3>Which command from below will help you achieve this task?</h3>
+            <ul class="options">
+                <li>docker push --tag version1 --file Dockerfile .</li>
+                <li class="correct">docker build --tag version1 --file Dockerfile .</li>
+                <li>docker create --tag version1 --file Dockerfile .</li>
+                <li>docker export --tag version1 --file Dockerfile .</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your organization's software engineering team is new to containerizing applications and wants to know the artifacts to be included in their container images.</h2>
+            <h3>Which of the following elements would you advise the Software Engineering team to include in their container images? (Select THREE)</h3>
+            <ul class="options">
+                <li class="correct">Software Binary Files</li>
+                <li>External volumes</li>
+                <li>Credentials</li>
+                <li class="correct">Software Libraries Files</li>
+                <li>Operating System (OS) Drivers</li>
+                <li class="correct">Application Code</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You have a microservices architecture in Kubernetes where Pod A generates data that Pod B depends on. Pod B should only start receiving traffic when it is ready to process the data from Pod A.</h2>
+            <h3>Which Kubernetes probe should you use to check that Pod B is ready to receive data before allowing it to get traffic?</h3>
+            <ul class="options">
+                <li>Liveness probe</li>
+                <li class="correct">Readiness probe</li>
+                <li>Startup probe</li>
+                <li>Custom probe script</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are the lead developer in a software development team, and your project manager has tasked you with containerizing an application for easier deployment and scaling. The team is new to containerization, and you want to ensure everyone understands the process.</h2>
+            <h3>What is the correct sequence of steps to containerize an application successfully?</h3>
+            <ul class="options">
+                <li class="correct">Start by writing a Dockerfile, then build a container image, and finally, push the image to a container registry.</li>
+                <li>First, choose a cloud provider, then write a Dockerfile, build the image, and finally, configure a load balancer.</li>
+                <li>Begin by designing the application's architecture, then write a Dockerfile, build the image, and finally, deploy it using Kubernetes.</li>
+                <li>Begin by selecting a container registry, then writing a Dockerfile, build the image, and finally, deploy it to the production server.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>As a software architect, your team needs to deploy various microservices to your company's EKS cluster.</h2>
+            <h3>Which of the following BEST describes how Helm can help with this goal?</h3>
+            <ul class="options">
+                <li>Helm is a container registry that provides secure storage for Docker images needed by your microservices.</li>
+                <li>Helm is a monitoring tool that lets you visualize metrics and logs for microservices running on EKS.</li>
+                <li class="correct">With Helm charts, you can define, install, and upgrade even the most complex microservices deployments on Kubernetes.</li>
+                <li>Helm allows you to define Kubernetes manifests as templates, checking them into Git. You can then use a Git push to trigger an automated deployment.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are deploying a web application onto Amazon EKS as part of the development team. The pod needs to retrieve a username and password to communicate with a pod in another namespace.</h2>
+            <h3>What is the most secure way to provide this to the web application pod?</h3>
+            <ul class="options">
+                <li>Use a Kubernetes configmap and expose it as an environment variable</li>
+                <li>Hard code the username and password in the pod spec as environment variables.</li>
+                <li>Use an encrypted secret and a volume mount.</li>
+                <li class="correct">Use an encrypted secret and expose it as an environment variable</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your team has deployed a web server pod into your Amazon EKS environment as a part of your sandbox account. You need to know this pod's IP address and verify if it is successfully running.</h2>
+            <h3>Which command can you use to query the API server to get the status of this webserver?</h3>
+            <ul class="options">
+                <li>apt-get pods -o wide</li>
+                <li>systemctl get pods -o wide</li>
+                <li>etcdctl get pods -o wide</li>
+                <li class="correct">kubectl get pods -o wide</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are advising a team of cloud architects who are designing an infrastructure for a new project that will use EKS for container orchestration. They want to ensure that their architecture incorporates cost optimization strategies.</h2>
+            <h3>Which of the following practices can help optimize costs when using EKS? (Select TWO.)</h3>
+            <ul class="options">
+                <li>Deploying EKS nodes in multiple Availability Zones for redundancy.</li>
+                <li class="correct">Implementing cluster auto-scaling to adjust the number of nodes based on workload requirements.</li>
+                <li>Running workloads in EKS pods with unlimited resource requests and limits.</li>
+                <li>Running all EKS workloads in on-demand instances for consistent performance.</li>
+                <li class="correct">Utilizing reserved instances for EKS nodes with predictable workloads.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>A customer's DevOps team is planning to upgrade to the latest Kubernetes version for their production EKS cluster, which is several versions behind. They would like to upgrade to the latest version with minimal downtime and impact while having the option to roll back to a previous version quickly.</h2>
+            <h3>Which solution should the DevOps team evaluate?</h3>
+            <ul class="options">
+                <li class="correct">Perform a blue/green upgrade strategy which involves creating a new EKS cluster with the latest Kubernetes version.</li>
+                <li>Since EKS is a managed service, AWS is responsible for upgrading the entire cluster, including the control plane and data plane, to the latest Kubernetes version, without customer involvement.</li>
+                <li>Upgrade to the latest Kubernetes version on the worker nodes first, then initiate an upgrade of the control plane.</li>
+                <li>Perform an in-place cluster upgrade directly to the latest Kubernetes version from the EKS console.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You cannot access the EKS cluster resources like pods and nodes with your IAM user. You've verified and concluded that you have the necessary IAM permissions.
+            </h2>
+            <h3>Which of the following is the key step in troubleshooting why the IAM user is not able to access the cluster resources?</h3>
+            <ul class="options">
+                <li>Provide Administrator access to the IAM user.</li>
+                <li>Attach AmazonEKSClusterPolicy IAM policy to the IAM user.</li>
+                <li>Renew the credentials of the IAM user to restore access.</li>
+                <li class="correct">Verify and add the IAM entity in the aws-auth config map.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are refactoring a monolithic e-commerce app into microservices in EKS. Each microservice runs in its own namespace. The monolith used a LoadBalancer Service for Internet traffic.</h2>
+            <h3>What is the most cost-efficient way to expose the new microservices to the Internet with minimal overhead?</h3>
+            <ul class="options">
+                <li>Deploy NGINX Ingress Controller, then deploy one NGINX Ingress resource that exposes all microservices in a single Namespace. Use different path prefixes for each microservice.</li>
+                <li>Use service with type LoadBalancer that exposes each microservice</li>
+                <li class="correct">Deploy AWS Load Balancer Controller, then deploy one Ingress resource that exposes all microservices in a single Namespace. Use different path prefixes for each microservice.</li>
+                <li>Deploy AWS Load Balancer Controller, then deploy multiple Ingress resources that exposes each microservice running in different namespaces. Use different path prefixes for each microservice and configure all Ingress resources to use the same IngressGroup.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You have built an Amazon EKS cluster residing in an Amazon VPC with a CIDR of 192.168.0.0/16. You have decided to provision your cluster's managed node groups across two Availability Zones in subnets with the CIDRs of 192.168.32.0/19 and 192.168.64.0/19. The Amazon VPC-CNI plugin is using its default configuration. An API application has been deployed to the cluster and is running across multiple Pods to support availability requirements. The API application is now required to make outbound calls to another application running within the same Amazon VPC as your Amazon EKS cluster. Due to the unique nature of this external application, you must allow a list of IP ranges from which calls will be made.</h2>
+            <h3>Which IP address is an example from which the application running on your Amazon EKS cluster could make outbound calls?</h3>
+            <ul class="options">
+                <li>127.0.0.1</li>
+                <li>172.16.25.5</li>
+                <li class="correct">192.168.67.9</li>
+                <li>10.52.36.11</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>As a developer, you have deployed your application to an Amazon EKS cluster. You cluster's administrator has explained that the cluster has been configured with Cluster Autoscaler to automatically scale cluster nodes as needed to meet the demand of workloads. <br><br>You application experiences varying levels of demand with higher levels of traffic occurring during business hours. Since the Amazon EKS cluster has been configured with Cluster Autoscaler your expectation was that your workloads would automatically scale out to meet required demand; however, you have noticed that the number of application pods your deployment is using remains static despite the amount of load on your application.</h2>
+            <h3>The configuration of what resource may be missing that would allow the automatic scale out of application pods based on utilization?</h3>
+            <ul class="options">
+                <li>Vertical Pod Autoscaler</li>
+                <li>Karpenter</li>
+                <li class="correct">Horizontial Pod AutoScaler</li>
+                <li>ReplicaSet</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are an engineer responsible for deploying microservice-based applications on Amazon EKS using Helm charts. The application consists of multiple microservices, each with its own Helm chart. <br>Recently, their environment has an outage due to an incident where one of the microservices was deployed with incorrect configuration values. your team has tasked you with introducing verification steps within the deployment pipeline. These steps should have the capability to generate microservice resources without actually deploying them. This strategic enhancement aims to proactively prevent future incidents similar to the recent production outage.</h2>
+            <h3>What command would you use for implementing verification steps in the deployment pipeline for generating microservice resources without executing deployments?</h3>
+            <ul class="options">
+                <li>helm create template myservice . -f values.yaml</li>
+                <li>helm install myservice . -f values_prod.yaml --template</li>
+                <li class="correct">helm template myservice . -f values_prod.yaml</li>
+                <li>helm install myservice . -f values_prod.yaml</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your customer wants to use AWS EKS to run a service. All the accounts are separated by permissions. The development team has asked the platform team to create an AWS EKS cluster. The EKS cluster was created successfully, but the customer cannot see the resources inside the cluster in the console.</h2>
+            <h3>Why are the resources not visible to the development team?</h3>
+            <ul class="options">
+                <li class="correct">The development team IAM Role is not mapped to the aws-auth configmap.</li>
+                <li>The IAM User used by the development team does not have the appropriate permissions.</li>
+                <li>The IAM User that the platform team used to create the AWS EKS does not have the appropriate permissions.</li>
+                <li>The Cluster IAM Role is missing AssumeRole.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>A developer building a front-end application wants to deploy it to an Amazon EKS cluster with two replicas for high availability and this front-end should be reachable from the Internet.</h2>
+            <h3>Which Kubernetes objects should the developer create to satisfy the above requirements?</h3>
+            <ul class="options">
+                <li>Create two pods and expose each pod via its own load balancer for high availability.</li>
+                <li>Create a pod with two containers and expose the pod via an Application Loadbalancer</li>
+                <li>Create a replicaset with two replicas for running the front-end, expose it via an application Loadbalancer</li>
+                <li class="correct">Create a deployment with two replicas for running the front-end, expose it via a service object of type LoadBalancer</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>A DevOps engineer needs to revisit some recently deployed multiple web applications on Amazon EKS. Each web application was exposed with NodePort service type with URL path using AWS Application Load Balancer (ALB) and Amazon Route 53 to connect customers' requests to the web applications. Web applications must handle HTTP/HTTPS traffic and be reachable on the Interne</h2>
+            <h3>Which recommendation is MOST likely cost-effective and has a reduced security risk?</h3>
+            <ul class="options">
+                <li>Create Service resource for each application. Change the service type to LoadBalancer.</li>
+                <li>Create multiple Ingress resources. Change the service type to ClusterIP.</li>
+                <li class="correct">Create single Ingress resource with multiple routing rules. Change the service type to ClusterIP.</li>
+                <li>Create Service resource for each application. Change the service type to NodePort.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your company is in the process of developing EKS Cluster with AWS best practices guidelines. They have been considering to use hybrid compute options for the Cluster Nodes Design. In hybrid architecture they are planning to to use On-Demand & Spot instances on x86 (Intel and AMD) and arm64 (Graviton) platforms based on traffic & resource requirements.</h2>
+            <h3>Which option do you think your company should select for lower operational management and better cost efficiency?</h3>
+            <ul class="options">
+                <li>Create multiple Self-Managed Node Group with respective AusoScaling Launch Configuration for on-demand, Spot, x86 and arm64. Use it with Node-selector for a given set of service deployments.</li>
+                <li>Create two Managed Node Groups- one for Spot & OnDemand each. Individual Managed Node Group will include required instances family/size & CPU Architecture(x86 & arms64) options. Add required EC2 size and family in the Autoscaling Launch Configuration to launch the respective EC2 at run time using Node-Selector.</li>
+                <li>Create Managed Node Group and respective Autoscaling Launch Configuration for each size, type, architecture, OnDemand or Spot instance type. Use K8s Node Selector to launch respective type of EC2 Node in EKS Cluster</li>
+                <li class="correct">Create groupless Karpenter CRD with one provisioner file including required hybrid options as given configurations and let Karpenter use the cost efficient options runtime to launch a new Node in the cluster</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are a DevOps engineer responsible for managing containerized applications in a Kubernetes cluster. You're tasked with ensuring that your team understands the key considerations when deploying pods in Kubernetes to maintain efficient and reliable operations.</h2>
+            <h3>When deploying a single pod in Kubernetes, which of the following considerations should be taken into account?</h3>
+            <ul class="options">
+                <li>The geographical location of the Kubernetes cluster.</li>
+                <li>The maximum number of pods that can run on a node.</li>
+                <li class="correct">The number of CPU cores and RAM allocated to the pod.</li>
+                <li>The Kubernetes version is used for cluster management.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You have a new team that is not familiar with Kubernetes and containers. With their limited knowledge, they need help understanding the differences between a container and a Pod in Kubernetes and seek your advice.</h2>
+            <h3>Which statements BEST help your team understand the concepts? (Select TWO)</h3>
+            <ul class="options">
+                <li>A Pod may only have at most one container in it.</li>
+                <li class="correct">A Pod may have one or more containers running at the same time.</li>
+                <li class="correct">A Pod is a virtual execution environment in which a container runs.</li>
+                <li>To scale out an application during a load condition, you add multiple copies of your containers inside a Pod.</li>
+                <li>A container in Kubernetes is known as a Pod.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are a DevOps engineer at a large financial services company. Your team is responsible for managing the company's Kubernetes cluster, which hosts hundreds of microservices that serve millions of customers per day. You need to expose a group of microservices to the outside world, but you want to do so in a way that is highly available, secure, and scalable.</h2>
+            <h3>Which kubernetes resource would BEST meet your requirements?</h3>
+            <ul class="options">
+                <li>NodePort</li>
+                <li>Load Balancer</li>
+                <li class="correct">A combination of an Ingress controller and a load balancer.</li>
+                <li>ClusterIP</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are responsible for managing the company's Kubernetes cluster, which hosts a handful of microservices. You are planning to add new nodes to the cluster to meet the increasing demand and are considering using two types of nodes: worker nodes and control plane.</h2>
+            <h3>What are the key differences between worker nodes and control plane?</h3>
+            <ul class="options">
+                <li>Worker nodes can be deployed on-premises or in the cloud, while master nodes must be deployed on-premises.</li>
+                <li class="correct">Worker nodes are responsible for running containerized applications, while the control plane is responsible for managing the cluster.</li>
+                <li>Worker nodes are more expensive than the control plane.</li>
+                <li>ontrol plane is more scalable than worker nodes.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your organization is working on re-architecting its monolith application to microservices. They are required to persist the storage of some applications beyond the pod's lifecycle. Since these applications can scale up to hundreds in number during peak load time, they don't want to manually create the volumes and want Kubernetes to automatically handle this.</h2>
+            <h3>What is the best approach to meet this requirement?</h3>
+            <ul class="options">
+                <li class="correct">Use Dynamic Provisioning strategy where persistent volume claim and storage class needs to be defined. Persistent volumes will be automatically provisioned.</li>
+                <li>Use Dynamic Provisioning strategy where only persistent volume needs to be defined. Persistent volumes claims and storage class will be automatically provisioned.</li>
+                <li>Use a Dynamic Provisioning strategy where persistent volume, persistent volume claim, and storage class needs to be defined.</li>
+                <li>Use the Dynamic Provisioning strategy where the storage class needs to be defined. Persistent volumes and Persistent volumes claims will be automatically provisioned.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>You are architecting a complex microservices-based application for deployment in a Kubernetes cluster. Each microservice runs in a separate pod and requires direct communication using the DNS name of the target pod, following the format ..svc. cluster.local. This is essential for maintaining data consistency and minimizing latency.</h2>
+            <h3>Which of the following communication mechanisms would BEST facilitate this requirement?</h3>
+            <ul class="options">
+                <li>Service Discovery</li>
+                <li>NodePort</li>
+                <li class="correct">ClusterIP</li>
+                <li>Network Policies</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your team is tasked with ensuring no downtime during application updates on EKS. You are responsible for rolling out frequent updates as soon as the development team releases newer container images for the application.</h2>
+            <h3>Which Kubernetes resource is MOST suitable for this purpose?</h3>
+            <ul class="options">
+                <li class="correct">Deployments</li>
+                <li>Replicasets</li>
+                <li>Pods</li>
+                <li>Daemonsets</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h2>Your company inherited several workloads running on Amazon EKS from a recent merger and acquisition. As the Cloud Engineer, you have been tasked with managing the new cluster. In your assessment, you observe that the workloads in the cluster are not organized.</h2>
+            <h3>What would you use to isolate the resources in the cluster?</h3>
+            <ul class="options">
+                <li>Pods</li>
+                <li class="correct">Namespaces</li>
+                <li>Services</li>
+                <li>RBAC</li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
